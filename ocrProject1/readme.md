@@ -1,0 +1,1 @@
+this project using ocr with tesseract
