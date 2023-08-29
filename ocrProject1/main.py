@@ -12,9 +12,9 @@ def index():
     if request.method == 'POST':
         uploaded_file = request.files['file']
         if uploaded_file.filename != '':
-            text = process_pdf(uploaded_file)  # PDF'i işleyip metne çevir
-            return render_template('index.html', text=text)  # HTML şablonuyla işlenmiş metni göster
-    return render_template('index.html', text=None)  # Sayfa yüklendiğinde metni gösterme
+            text, filename = process_pdf(uploaded_file)  # PDF'i işleyip metne çevir ve dosya adını al
+            return render_template('index.html', text=text, filename=filename)  # HTML şablonuna dosya adını da gönder
+    return render_template('index.html', text=None)
 
 # PDF dosyasını işle ve metni çıkar
 def process_pdf(pdf_file):
@@ -28,7 +28,7 @@ def process_pdf(pdf_file):
         page_text = extract_text_from_page(page)  # Sayfadaki metni çıkar
         text += page_text
 
-    return text
+    return text, pdf_file.filename  # Metni ve dosya adını döndür
 
 # Sayfadaki metni çıkarma
 def extract_text_from_page(page):
