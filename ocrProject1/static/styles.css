@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #6f849c;
 }
 
 .container {
@@ -13,6 +14,12 @@ body {
 
 h1 {
     margin-bottom: 20px;
+    color: #bd0d22;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #bd0d22;
 }
 
 input[type="file"] {
@@ -33,3 +40,42 @@ textarea {
     height: 300px;
     margin-top: 10px;
 }
+
+.button2 {
+    padding: 5px 10px; /* Küçültülmüş padding */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    font-size: 12px; /* Küçültülmüş font boyutu */
+    line-height: 1;
+    transition-property: background-color, border-color, color, box-shadow, filter;
+    transition-duration: .3s;
+    letter-spacing: 1px; /* Küçültülmüş letter-spacing */
+    min-width: 140px; /* Küçültülmüş min genişlik */
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: inset 0 0 0 2px #616467;
+    height: 40px; /* Küçültülmüş yükseklik */
+}
+
+.button2:hover {
+    color: #fff;
+    background-color: #616467;
+}
+
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

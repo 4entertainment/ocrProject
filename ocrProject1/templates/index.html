@@ -10,12 +10,34 @@
         <h2>using ocr: ocrProject1</h2>
         <form method="POST" enctype="multipart/form-data">
             <input type="file" name="file" accept=".pdf">
-            <button type="submit">Convert to Text</button>
+            <button class="button2" type="submit">Convert to Text</button>
         </form>
         {% if text %}
         <textarea readonly>{{ text }}</textarea>
-        <p>Processed File: {{ filename }}</p>  <!-- İşlenen dosya adını göster -->
+        <p>Processed File: {{ filename }}</p>
+        <button id="download-button" class="button2">DOWNLOAD TEXT</button>
+        <button id="copy-button" class="button2">COPY TEXT</button>
         {% endif %}
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const downloadButton = document.getElementById("download-button");
+            const copyButton = document.getElementById("copy-button");
+            const outputText = document.querySelector("textarea");
+
+            downloadButton.addEventListener("click", function() {
+                const blob = new Blob([outputText.value], { type: "text/plain;charset=utf-8" });
+                const filename = "output_text.txt";
+                saveAs(blob, filename);
+            });
+
+            copyButton.addEventListener("click", function() {
+                outputText.select();
+                document.execCommand("copy");
+            });
+        });
+    </script>
 </body>
 </html>
