@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
     <title>PDF to Text OCR</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
@@ -13,9 +13,13 @@
             <button class="button2" type="submit">Convert to Text</button>
         </form>
         {% if text %}
-        <textarea readonly>{{ text }}</textarea>
         <!--- <textarea name="edited_text">{{ text }}</textarea> ---> <!--- This can edit output but working slowly --->
+        <label>
+            <textarea readonly>{{ text }}</textarea>
+        </label>
         <p>Processed File: {{ filename }}</p>
+        <h2>Conversion Tİme:</h2>
+        <p>{{ elapsed_time }} seconds</p>
         <button id="download-button" class="button2">DOWNLOAD TEXT</button>
         <button id="copy-button" class="button2">COPY TEXT</button>
         {% endif %}
